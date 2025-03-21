@@ -6,8 +6,12 @@ leds = []
 
 for pin in pins:
     leds.append(Pin(pin, Pin.OUT))
-    
+
+for led in leds:
+    led.value(1)
+
 curr_led = 5
+leds[curr_led].value(0)
 
 last_click_time = 0
 debounce_delay = 150
@@ -56,5 +60,5 @@ button_right.irq(trigger=machine.Pin.IRQ_FALLING, handler=move_led_right)
     
 
 while True:
-    
+
     utime.sleep(10)
