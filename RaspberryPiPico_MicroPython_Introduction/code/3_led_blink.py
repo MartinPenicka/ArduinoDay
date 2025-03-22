@@ -1,17 +1,23 @@
+'''
+Blika nekolika LED
+'''
 from machine import Pin
-import time
+import utime
 
-leds = [4, 5, 6]
-
-for led in leds:
-    leds.append(Pin(led, Pin.OUT))
+led1 = Pin(2, Pin.OUT)
+led2 = Pin(3, Pin.OUT)
+led3 = Pin(4, Pin.OUT)
 
 duration = 0.5
 
 while True:
     
-    for led in leds:
-        led.value(1)
-        time.sleep(duration)
-        led.value(0)
-        time.sleep(duration)
+    led1.value(0)
+    utime.sleep(duration)
+    led1.value(1)
+    led2.value(0)
+    utime.sleep(duration)
+    led2.value(1)
+    led3.value(0)
+    utime.sleep(duration)
+    led3.value(1)

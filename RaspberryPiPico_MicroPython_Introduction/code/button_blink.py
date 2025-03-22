@@ -1,9 +1,12 @@
+'''
+Po stisku tlacitka se rozsviti LED
+'''
 from machine import Pin
 import time
 
-led = Pin(4, Pin.OUT)
+led = Pin(2, Pin.OUT)
 
-button = machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_UP)
+button = machine.Pin(12, machine.Pin.IN, machine.Pin.PULL_UP)
 
 while True:
     

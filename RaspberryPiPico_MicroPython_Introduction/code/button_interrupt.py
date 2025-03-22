@@ -1,7 +1,10 @@
+'''
+Pomoci tlacitkla lze prepnout smer blikani LED zleva do prava a obracene, je pouzito preruseni a debouncing
+'''
 from machine import Pin
 import utime
 
-pins = [4, 5, 6]
+pins = [2, 3, 4, 5, 6, 7, 8, 9]
 leds = []
 
 for pin in pins:
@@ -30,23 +33,21 @@ def button_click(pin):
         return
     mode = 0
     
-button = machine.Pin(3, machine.Pin.IN, machine.Pin.PULL_UP)
+button = machine.Pin(12, machine.Pin.IN, machine.Pin.PULL_UP)
 button.irq(trigger=machine.Pin.IRQ_FALLING, handler=button_click)
     
 def blink(dur, direction):
     
     if direction == 0:
         for led in leds:
-            led.value(1)
-            utime.sleep(dur)
             led.value(0)
             utime.sleep(dur)
+            led.value(1)
     else:
         for led in reversed(leds):
-            led.value(1)
-            utime.sleep(dur)
             led.value(0)
             utime.sleep(dur)
+            led.value(1)
 
 while True:
     

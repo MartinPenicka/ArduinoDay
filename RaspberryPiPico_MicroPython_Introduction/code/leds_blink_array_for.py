@@ -1,5 +1,8 @@
+'''
+Blikani nekolika LED pomoci pole a cyklu
+'''
 from machine import Pin
-import time
+import utime
 
 pins = [4, 5, 6]
 leds = []
@@ -13,6 +16,6 @@ while True:
     
     for led in leds:
         led.value(1)
-        time.sleep(duration)
+        utime.sleep(duration)
         led.value(0)
-        time.sleep(duration)
+        utime.sleep(duration)

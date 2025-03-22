@@ -1,3 +1,6 @@
+'''
+Pomoci tlacitek je mozne posunovat svitici LED doleva a doprava
+'''
 from machine import Pin
 import utime
 

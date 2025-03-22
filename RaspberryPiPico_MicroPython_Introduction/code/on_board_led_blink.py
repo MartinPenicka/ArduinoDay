@@ -1,7 +1,11 @@
+'''
+Zakladni priklad - blika LED primo na desce
+'''
 from machine import Pin
 import utime
 
-led = Pin(25, Pin.OUT)
+# RPi Pico pin = 25, RPi Pico W pin = "LED"
+led = Pin("LED", Pin.OUT)
 
 while True:
     
