@@ -12,6 +12,7 @@ leds = []
 for pin in pins:
     leds.append(Pin(pin, Pin.OUT))
 
+# Resetuje LEDky - vsechny zhasnou
 for led in leds:
     led.value(1)
 
@@ -27,19 +28,35 @@ def leds_down():
 
 def blink_all(dur):
     
+    global keep_blinking
+    
     for led in leds:
+        
+        if not keep_blinking:
+            return
+        
         led.value(0)
         
     utime.sleep(dur)
     
     for led in leds:
+        
+        if not keep_blinking:
+            return  
+        
         led.value(1)
         
     utime.sleep(1)
     
 def blink_single_moving(dur):
     
+    global keep_blinking
+    
     for led in leds:
+        
+        if not keep_blinking:
+            return
+        
         led.value(0)
         utime.sleep(dur)
         led.value(1)
@@ -47,11 +64,21 @@ def blink_single_moving(dur):
         
 def blink_fill_up(dur):
     
+    global keep_blinking
+    
     for led in leds:
+        
+        if not keep_blinking:
+            return
+        
         led.value(0)
         utime.sleep(dur)
         
     for led in leds:
+        
+        if not keep_blinking:
+            return
+        
         led.value(1)
         
 blink_methods = [blink_all, blink_single_moving, blink_fill_up]
