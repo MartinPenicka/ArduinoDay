@@ -12,7 +12,7 @@ def button_click(pin):
     counter += 1
     print(f"Counter is {counter}")
 
-button = machine.Pin(14, machine.Pin.IN, machine.Pin.PULL_UP)
+button = machine.Pin(12, machine.Pin.IN, machine.Pin.PULL_UP)
 button.irq(trigger=machine.Pin.IRQ_FALLING, handler=button_click)
 
 for pin in pins:

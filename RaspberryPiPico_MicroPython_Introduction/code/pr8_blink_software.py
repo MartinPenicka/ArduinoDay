@@ -1,3 +1,8 @@
+'''
+Blikaci program
+tlacitko 12 voli jeden z programu, tlacitko 14 vypina/zapina blikani
+'''
+
 from machine import Pin
 import utime
 
